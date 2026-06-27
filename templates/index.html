@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/static/img/favicon-uneb.png" type="image/png">
+    <title>Busca Semântica</title>
+
+    <link rel="stylesheet" href="/static/css/styles.css" />
+  </head>
+
+  <body class="centered">
+    <div class="container">
+      <h1>Busca Semântica</h1>
+
+      <div class="card">
+        <input type="text" id="query" placeholder="Informe a área de conhecimento desejada"/>
+
+        <div class="actions">
+          <center>
+            <button id="btn-search">Buscar</button>
+            <button id="btn-filter" class="btn-filter">Mostrar Filtros</button>
+          </center>
+        </div>
+
+        <div id="filters-panel" class="filters-panel" style="display: none">
+          <div class="filter-group">
+            <label><strong>Tipo de entidade:</strong></label>
+
+            <div class="checkbox-group">
+              <label>
+                <input type="checkbox" value="Pesquisador" checked />Pesquisador
+              </label>
+
+              <label>
+                <input type="checkbox" value="Grupo de Pesquisa" checked />Grupo
+              </label>
+
+              <label>
+                <input type="checkbox" value="Empresa" checked />Empresa
+              </label>
+            </div>
+          </div>
+
+          <br />
+
+          <div class="filter-group">
+            <label><strong>Modo de busca: </strong></label>
+
+            <div class="checkbox-group">
+              <label>
+                <input type="radio" name="search_mode" value="hybrid" checked/>Híbrido
+              </label>
+
+              <label>
+                <input type="radio" name="search_mode" value="semantic"/>Semântico
+              </label>
+
+              <label>
+                <input type="radio" name="search_mode" value="lexical"/>Léxico
+              </label>
+            </div>
+          </div>
+
+          <br />
+
+          <div class="filter-group">
+            <label><strong>Score mínimo:</strong> <span id="score-value">50</span>%</label></strong>
+            <small class="field-help">Define a nota de corte da consulta.</small>
+            <input type="range" id="min_score" min="0" max="100" step="5" value="50"/>
+          </div>
+
+          <br />
+
+          <div class="filter-group">
+            <label for="top_results">
+                <strong>Resultados por tipo:</strong>
+            </label>
+
+            <input type="number" id="top_results" name="top_results" min="1" max="50" value="5"/>
+            <small class="field-help">Define o número máximo de resultados retornados pela consulta.</small>
+          </div>
+        </div>
+      </div>
+
+      <div id="status"></div>
+      <div id="results"></div>
+      
+    </div>
+
+    <script type="module" src="/static/js/main.js"></script>
+  </body>
+</html>
