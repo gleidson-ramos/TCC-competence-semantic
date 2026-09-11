@@ -6,3 +6,5 @@ venv/
 .venv/
 
 cache/
+
+config.py
